@@ -1,0 +1,6 @@
+client secret = K9fA3bV4zE7pO1qJ5tL6mW2xY8nZ0rS3
+client Id = d8341d2e-8c5b-4e2d-89c2-123456789abc
+
+first req = http://localhost:8085/login?clientId=d8341d2e-8c5b-4e2d-89c2-123456789abc&redirect_uri=http%3A%2F%2Flocalhost%3A8585%2Fok&state=aBcD1EfG2hIjK3LmNoPqRsT4V&scope=read_user&response_type=code
+
+token req body = client_id=d8341d2e-8c5b-4e2d-89c2-123456789abc&client_secret=K9fA3bV4zE7pO1qJ5tL6mW2xY8nZ0rS3&redirect_uri=http%3A%2F%2Flocalhost%3A8585%2FuserInfo&code=as3818p10hne1l23sb11e7b699pjtuf7&grant_type=authorization_code

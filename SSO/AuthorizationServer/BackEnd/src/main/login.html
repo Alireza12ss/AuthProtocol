@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            position: relative; /* موقعیت دهی نسبی برای والد */
+        }
+
+        .logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .logos img {
+            width: 75px;
+            height: 75px;
+            border-radius: 20%;
+        }
+
+        .logos::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc(75px + 15px);
+            right: calc(75px + 20px);
+            height: 0;
+            border-top: 2px dashed rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .circle-icon {
+            width: 30px;
+            height: 30px;
+            background-image: url('tik.png');
+            background-size: cover;
+            background-position: center;
+            position: absolute; /* موقعیت‌دهی مطلق */
+            top: 50%; /* تنظیم به مرکز عمودی */
+            left: 50%; /* تنظیم به مرکز افقی */
+            transform: translate(-50%, -50%); /* حرکت دایره به مرکز کامل */
+            z-index: 1; /* جلوتر از خط چین */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="logos">
+        <img src="https://mci.ir/documents/20147/446459/128-128.png/90417caf-1bef-d9a5-c450-4ca57059c232?t=1531980404253" alt="Hamrah Aval Logo">
+        <img src="https://img.icons8.com/ios-glyphs/90/user--v1.png"  alt="Other Logo">
+        <div class="circle-icon"></div>
+    </div>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        var url = '/login?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+
+        fetch(url, {
+            method: 'POST'
+        })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/authorize?username=' + encodeURIComponent(username);
+                } else {
+                    throw new Error('Login failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred');
+            });
+    });
+</script>
+</body>
+</html>
