@@ -1,0 +1,69 @@
+/* تنظیمات کلی */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* تنظیمات برای استک پن */
+.stack-pane {
+    -fx-background-color: #ffffff;
+}
+
+/* تنظیمات تایتل */
+#title {
+    -fx-font-size: 36px;
+    -fx-font-family: 'IRANSans', 'Arial', sans-serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: #007bff; /* رنگ آبی همراه اول */
+}
+
+/* تنظیمات برای Label ها */
+.label {
+    -fx-font-size: 20px;
+    -fx-text-fill: #333333;
+}
+
+/* تنظیمات برای فیلدهای ورودی */
+.text-field, .password-field {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 100px;
+    -fx-border-color: #007bff; /* رنگ آبی همراه اول */
+    -fx-border-radius: 100px;
+    -fx-border-width: 3px;
+    -fx-padding: 8px 16px;
+    -fx-font-size: 20px;
+}
+
+/* دکمه ها */
+.button {
+    -fx-background-color: white;
+    -fx-text-fill: #007bff; /* رنگ آبی همراه اول */
+    -fx-font-size: 24px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 100px;
+    -fx-border-width: 3px;
+    -fx-border-color: #007bff;
+    -fx-border-radius: 100px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}
+
+/* دکمه "back to login" */
+.back-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #007bff; /* رنگ آبی همراه اول */
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #007bff; /* رنگ آبی همراه اول */
+    -fx-border-width: 1px;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-background-color: #f0f8ff; /* رنگ آبی کمرنگ */
+}
